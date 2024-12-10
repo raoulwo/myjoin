@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -ex -o pipefail
+
+# Test "myjoin" using a small data set.
+
+test_dir=/localtmp/efficient24
+test_files="${test_dir}/a.csv ${test_dir}/b.csv ${test_dir}/c.csv ${test_dir}/d.csv"
+test_expected=${test_dir}/abcd.csv
+
+./build/myjoin $test_files | sort | diff - $test_expected
