@@ -4,8 +4,8 @@ set -ex -o pipefail
 
 # Test "myjoin" using a large data set.
 
-test_dir=/localtmp/efficient24
-test_files="${test_dir}/f1.csv ${test_dir}/f2.csv ${test_dir}/f3.csv ${test_dir}/f4.csv"
-test_expected=${test_dir}/output.csv
+data_dir=${DATA_DIR:-/localtmp/efficient24}
+data_files="${data_dir}/f1.csv ${data_dir}/f2.csv ${data_dir}/f3.csv ${data_dir}/f4.csv"
+data_expected=${data_dir}/output.csv
 
-./build/myjoin $test_files | sort | diff - $test_expected
+./build/myjoin $data_files | sort | diff - $data_expected
