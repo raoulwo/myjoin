@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -ex -o pipefail
+
+# Report the performance optimizations.
+
+test_dir=/localtmp/efficient24
+test_files="${test_dir}/f1.csv ${test_dir}/f2.csv ${test_dir}/f3.csv ${test_dir}/f4.csv"
+measured_events="-e cycles -e instructions -e branches -e branch-misses -e L1-dcache-load-misses"
+
+LC_NUMERIC=en_US perf stat $measured_events ./build/myjoin $test_files | cat >/dev/null
