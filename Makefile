@@ -3,19 +3,19 @@ BUILD_TARGET := myjoin
 BUILD_DIR := ./build
 SRC_DIR := ./src
 
-CC := gcc
-CFLAGS := -O2
+CXX := g++
+CXXFLAGS := -O2
 
 $(BUILD_DIR)/$(BUILD_TARGET): $(BUILD_DIR)/main.o $(BUILD_DIR)/myjoin.o
-	$(CC) $^ -o $@
+	$(CXX) $^ -o $@
 
-$(BUILD_DIR)/main.o: $(SRC_DIR)/main.c
+$(BUILD_DIR)/main.o: $(SRC_DIR)/main.cpp
 	@mkdir -p $(dir $@)
-	$(CC) -c $(CFLAGS) $^ -o $@
+	$(CXX) -c $(CXXFLAGS) $^ -o $@
 
-$(BUILD_DIR)/myjoin.o: $(SRC_DIR)/myjoin.c
+$(BUILD_DIR)/myjoin.o: $(SRC_DIR)/myjoin.cpp
 	@mkdir -p $(dir $@)
-	$(CC) -c $(CFLAGS) $^ -o $@
+	$(CXX) -c $(CXXFLAGS) $^ -o $@
 
 .PHONY: clean
 clean:
