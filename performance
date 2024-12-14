@@ -8,4 +8,4 @@ data_dir=${DATA_DIR:-/localtmp/efficient24}
 data_files="${data_dir}/f1.csv ${data_dir}/f2.csv ${data_dir}/f3.csv ${data_dir}/f4.csv"
 measured_events="-e cycles -e instructions -e branches -e branch-misses -e L1-dcache-load-misses"
 
-LC_NUMERIC=en_US perf stat $measured_events ./build/myjoin $data_files | cat >/dev/null
+LC_NUMERIC=en_US perf stat $measured_events ./src/main.py $data_files | cat >/dev/null

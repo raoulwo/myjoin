@@ -1,23 +1,5 @@
 # myjoin
 
-## Building the project
-
-In order to build the project, run `make` from the project root:
-
-```sh
-make
-```
-
-The resulting executable `myjoin` is then available in `./build/myjoin`.
-
-## Cleaning the project
-
-In order to clean the build output including temporary object files, run:
-
-```sh
-make clean
-```
-
 ## Testing the project
 
 There are two bash-scripts in the project root that you can use to test the
